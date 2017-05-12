@@ -18,7 +18,7 @@ class HomeCollectionVC: UICollectionViewController {
     // 2.详情页面控制器,用weak修饰它,避免循环引用
     fileprivate weak var detailVC = DetailVC()
     // 3.转场动画代理
-    fileprivate lazy var animationDelegate: HomeAnimation = {
+    fileprivate lazy var animationDelegate: HomeAnimation = { [weak self] in
         $0.presentDelegate = self
         $0.dismissDelegate = self
         return $0
@@ -34,6 +34,11 @@ class HomeCollectionVC: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        navigationItem.title = "美丽说瀑布流"
+        automaticallyAdjustsScrollViewInsets = false
+        collectionView?.contentInset = UIEdgeInsetsMake(64, 0, 0, 0)
+        collectionView?.scrollIndicatorInsets = collectionView!.contentInset
+        
         // 加载数据
         loadData()
     }
@@ -44,8 +49,8 @@ extension HomeCollectionVC {
     
     fileprivate func loadData() {
         
-        HomeDataTool.requestHomeDataList { (models: [ProductModel]) in
-            self.models = models
+        HomeDataTool.requestHomeDataList { [weak self] (models: [ProductModel]) in
+            self?.models = models
         }
     }
     
@@ -53,11 +58,11 @@ extension HomeCollectionVC {
         
         currentPage += 1
         // 不管失败还是成功,页码,每次访问都会加一,中间可能会漏掉好多数据
-        HomeDataTool.requestHomeDataList(page: currentPage) { (models: [ProductModel]) in
-            self.models += models;
+        HomeDataTool.requestHomeDataList(page: currentPage) { [weak self] (models: [ProductModel]) in
+            self?.models += models;
             
             if models.count == 0 {
-                self.currentPage -= 1
+                self?.currentPage -= 1
             }
         }
     }
