@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jYh-sm-I4B">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home CollectionVC-->
+        <scene sceneID="LwT-lT-x2X">
+            <objects>
+                <collectionViewController id="jYh-sm-I4B" customClass="HomeCollectionVC" customModule="Meilishuo" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="cZa-eu-tgP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XgZ-4F-iqk" customClass="HomeFlowLayout" customModule="Meilishuo" customModuleProvider="target">
+                            <size key="itemSize" width="83" height="80"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="home" id="yhN-nP-mcx" customClass="ProductCell" customModule="Meilishuo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="83" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="83" height="80"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Au6-Da-A3D">
+                                            <rect key="frame" x="0.0" y="0.0" width="83" height="80"/>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Au6-Da-A3D" secondAttribute="bottom" id="7UI-pV-P3c"/>
+                                    <constraint firstItem="Au6-Da-A3D" firstAttribute="leading" secondItem="yhN-nP-mcx" secondAttribute="leading" id="CPc-PM-6l9"/>
+                                    <constraint firstAttribute="trailing" secondItem="Au6-Da-A3D" secondAttribute="trailing" id="ITb-ii-RiI"/>
+                                    <constraint firstItem="Au6-Da-A3D" firstAttribute="top" secondItem="yhN-nP-mcx" secondAttribute="top" id="eZI-3x-Ju8"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="Au6-Da-A3D" id="h9a-85-lwZ"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="jYh-sm-I4B" id="BOp-IG-FZz"/>
+                            <outlet property="delegate" destination="jYh-sm-I4B" id="Pjj-OU-Box"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r62-P4-GXN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-107.5" y="-168.5"/>
+        </scene>
+    </scenes>
+</document>
