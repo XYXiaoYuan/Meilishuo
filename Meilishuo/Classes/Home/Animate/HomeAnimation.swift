@@ -8,7 +8,7 @@
 
 import UIKit
 
-fileprivate let duration : Double = 0.5
+fileprivate let duration : Double = 1.0
 
 // MARK:-弹出动画代理
 protocol HomeAnimationPresentDelegate: NSObjectProtocol {
