@@ -15,5 +15,10 @@ let kScreenH = kScreenBounds.size.height
 let kScreenSize = CGSize(width: kScreenW, height: kScreenH)
 let kScreenRightDown = CGRect(x: kScreenW, y: kScreenH, width: 0, height: 0)
 
+// 导航栏最大的Y值
+let kNavBarMaxY: CGFloat = 64.0
+// TabBar的高度
+let kTabBarH: CGFloat = 49.0
+
 // 请求的接口地址
 let kRequestURL = "http://apiv2.yangkeduo.com/operation/14/groups"

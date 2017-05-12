@@ -21,6 +21,6 @@ class HomeFlowLayout: UICollectionViewFlowLayout {
         
         minimumLineSpacing = 10
         minimumInteritemSpacing = 5
-        collectionView?.contentInset = UIEdgeInsetsMake(margin, margin, margin, margin)
+        collectionView?.contentInset = UIEdgeInsetsMake(kNavBarMaxY + margin, margin, margin, margin)
     }
 }

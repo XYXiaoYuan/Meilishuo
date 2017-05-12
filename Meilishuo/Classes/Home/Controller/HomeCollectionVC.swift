@@ -35,9 +35,6 @@ class HomeCollectionVC: UICollectionViewController {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         navigationItem.title = "美丽说瀑布流"
-        automaticallyAdjustsScrollViewInsets = false
-        collectionView?.contentInset = UIEdgeInsetsMake(64, 0, 0, 0)
-        collectionView?.scrollIndicatorInsets = collectionView!.contentInset
         
         // 加载数据
         loadData()

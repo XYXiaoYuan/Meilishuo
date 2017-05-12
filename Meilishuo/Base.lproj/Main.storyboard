@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vNF-sF-AXb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="a6p-Gp-Z5c">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,71 +10,71 @@
     </dependencies>
     <scenes>
         <!--Home CollectionVC-->
-        <scene sceneID="LwT-lT-x2X">
+        <scene sceneID="qbt-PI-uTK">
             <objects>
-                <collectionViewController id="jYh-sm-I4B" customClass="HomeCollectionVC" customModule="Meilishuo" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="cZa-eu-tgP">
+                <collectionViewController id="kO4-Ml-aJz" customClass="HomeCollectionVC" customModule="Meilishuo" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="Egs-vS-zsd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XgZ-4F-iqk" customClass="HomeFlowLayout" customModule="Meilishuo" customModuleProvider="target">
-                            <size key="itemSize" width="83" height="80"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3Se-vV-dpt" customClass="HomeFlowLayout" customModule="Meilishuo" customModuleProvider="target">
+                            <size key="itemSize" width="134" height="145"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="home" id="yhN-nP-mcx" customClass="ProductCell" customModule="Meilishuo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="83" height="80"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="home" id="S82-MU-eme" customClass="ProductCell" customModule="Meilishuo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="134" height="145"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="83" height="80"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="134" height="145"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Au6-Da-A3D">
-                                            <rect key="frame" x="0.0" y="0.0" width="83" height="80"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wdy-Aw-s2T">
+                                            <rect key="frame" x="0.0" y="0.0" width="134" height="145"/>
                                         </imageView>
                                     </subviews>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="Au6-Da-A3D" secondAttribute="bottom" id="7UI-pV-P3c"/>
-                                    <constraint firstItem="Au6-Da-A3D" firstAttribute="leading" secondItem="yhN-nP-mcx" secondAttribute="leading" id="CPc-PM-6l9"/>
-                                    <constraint firstAttribute="trailing" secondItem="Au6-Da-A3D" secondAttribute="trailing" id="ITb-ii-RiI"/>
-                                    <constraint firstItem="Au6-Da-A3D" firstAttribute="top" secondItem="yhN-nP-mcx" secondAttribute="top" id="eZI-3x-Ju8"/>
+                                    <constraint firstAttribute="bottom" secondItem="wdy-Aw-s2T" secondAttribute="bottom" id="4kf-Fz-U9b"/>
+                                    <constraint firstItem="wdy-Aw-s2T" firstAttribute="top" secondItem="S82-MU-eme" secondAttribute="top" id="7b6-pL-lYE"/>
+                                    <constraint firstAttribute="trailing" secondItem="wdy-Aw-s2T" secondAttribute="trailing" id="BHL-Xl-ubW"/>
+                                    <constraint firstItem="wdy-Aw-s2T" firstAttribute="leading" secondItem="S82-MU-eme" secondAttribute="leading" id="QAQ-k5-nQ9"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="imageView" destination="Au6-Da-A3D" id="h9a-85-lwZ"/>
+                                    <outlet property="imageView" destination="wdy-Aw-s2T" id="x1Q-Gg-nvl"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
-                            <outlet property="dataSource" destination="jYh-sm-I4B" id="BOp-IG-FZz"/>
-                            <outlet property="delegate" destination="jYh-sm-I4B" id="Pjj-OU-Box"/>
+                            <outlet property="dataSource" destination="kO4-Ml-aJz" id="OR2-YC-GsQ"/>
+                            <outlet property="delegate" destination="kO4-Ml-aJz" id="3og-EQ-dWo"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="9w3-Q2-Fru"/>
+                    <navigationItem key="navigationItem" id="8YY-af-Zln"/>
                 </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="r62-P4-GXN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5TF-23-ckS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="831.20000000000005" y="-168.6656671664168"/>
+            <point key="canvasLocation" x="1848.8" y="-171.36431784107947"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="ngh-kk-uSu">
+        <scene sceneID="6iy-0Q-wSL">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vNF-sF-AXb" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="a6p-Gp-Z5c" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fam-43-l92">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dOq-bz-a44">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="jYh-sm-I4B" kind="relationship" relationship="rootViewController" id="m8B-Fq-1ye"/>
+                        <segue destination="kO4-Ml-aJz" kind="relationship" relationship="rootViewController" id="cNU-0b-fsx"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qM8-hr-Sw8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FM9-Rg-ffE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-108" y="-168.6656671664168"/>
+            <point key="canvasLocation" x="1047.2" y="-171.36431784107947"/>
         </scene>
     </scenes>
 </document>
