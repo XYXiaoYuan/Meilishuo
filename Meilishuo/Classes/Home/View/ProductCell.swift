@@ -15,10 +15,11 @@ class ProductCell: UICollectionViewCell {
     
     var models : ProductModel? {
         didSet {
-            if let url = URL(string: models?.thumb_url ?? "") {
-                
-                imageView.sd_setImage(with: url)
+            guard let url = URL(string: models?.thumb_url ?? "") else {
+                return
             }
+            
+            imageView.sd_setImage(with: url, placeholderImage: UIImage(named: "empty_picture"))
         }
     }
 }

@@ -22,7 +22,7 @@ class DetailCell: UICollectionViewCell {
                 return
             }
             
-            imageView.sd_setImage(with: url)
+            imageView.sd_setImage(with: url, placeholderImage: UIImage(named: "empty_picture"))
         }
     }
     

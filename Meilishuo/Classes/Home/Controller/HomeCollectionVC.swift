@@ -24,7 +24,7 @@ class HomeCollectionVC: UICollectionViewController {
         return $0
     }(HomeAnimation())
     // 4.首页的模型数据
-    fileprivate var models : [ProductModel] = [] {
+    fileprivate var models : [ProductModel] = [ProductModel]() {
         didSet {
             collectionView?.reloadData()
         }

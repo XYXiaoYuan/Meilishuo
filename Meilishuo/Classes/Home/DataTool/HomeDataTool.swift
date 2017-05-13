@@ -28,28 +28,30 @@ class HomeDataTool: NSObject {
         // 发送请求
         NetworkTool.request(type: .get, url: kRequestURL, param: param) { (responseObj: Any?, error: Error?) in
             
-            if error == nil {
-                
-                var models = [ProductModel]()
-                
-                guard let resultObj = responseObj as? [String: Any] else {
-                    return
-                }
-                
-                guard let dictArray = resultObj["goods_list"] as? [[String: Any]] else {
-                    return
-                }
-                
-                for dict in dictArray {
-                    let p = ProductModel(dict)
-                    models.append(p)
-                }
-                
-                // 最合适调用block的位置(传值的位置)
-                result(models)
-            } else {
-                print(error ?? "")
+            // 1.判断是否有错误
+            if error != nil {
+                return
             }
+            
+            // 2.1.取出响应体中的字典
+            guard let resultObj = responseObj as? [String: Any] else {
+                return
+            }
+            
+            // 2.2.取出 goods_list 字典数组
+            guard let dictArray = resultObj["goods_list"] as? [[String: Any]] else {
+                return
+            }
+            
+            // 3.定义模型并拼接成数组
+            var models = [ProductModel]()
+            for dict in dictArray {
+                let p = ProductModel(dict)
+                models.append(p)
+            }
+            
+            // 4.返回数组
+            result(models)
             
         }
     }
