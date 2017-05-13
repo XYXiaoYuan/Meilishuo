@@ -49,21 +49,22 @@ extension HomeCollectionVC {
     
     func loadMoreData(updateDetailClosure: DetailClosureType? = nil) {
         
-        currentPage += 1
+        let nextPage = currentPage + 1
         // 不管失败还是成功,页码,每次访问都会加一,中间可能会漏掉好多数据
-        HomeDataTool.requestHomeDataList(page: currentPage) { [weak self] (models: [ProductModel]) in
-            self?.homeDataSource += models;
+        HomeDataTool.requestHomeDataList(page: nextPage) { [weak self] (models: [ProductModel]) in
+            self?.currentPage = nextPage
+            print("😃😃😃😃😃😃主界面加载第\(nextPage)页😃😃😃😃😃😃")
             
-            if models.count == 0 {
-                self?.currentPage -= 1
+            guard let updateDetailClosure = updateDetailClosure else {
+                self?.homeDataSource += models;
+                return
             }
+            
+            self?.homeDataSource += models;
+            updateDetailClosure((self?.homeDataSource)!)
+        
         }
         
-        guard let updateDetailClosure = updateDetailClosure else {
-            return
-        }
-        
-        updateDetailClosure(self.homeDataSource)
     }
 }
 
@@ -87,11 +88,11 @@ extension HomeCollectionVC {
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let pCell = cell as! ProductCell
         
-        pCell.productModels = homeDataSource[indexPath.row]
+        pCell.productModels = homeDataSource[indexPath.item]
         
-        print(indexPath.row)
+        print("首页\(indexPath.item)🍀")
         // 最后一个显示的时候,加载下一页
-        if indexPath.row == homeDataSource.count - 1 {
+        if indexPath.item == homeDataSource.count - 1 {
             loadMoreData()
         }
     }

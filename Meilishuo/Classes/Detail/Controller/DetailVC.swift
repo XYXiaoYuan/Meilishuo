@@ -126,9 +126,11 @@ extension DetailVC {
     // 即将显示某一个cell的时候会调用这个时候
     // 负责给cell赋值的
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        print("详情\(indexPath.item)🌲")
+
         // 设置数据源
         let pCell = cell as! DetailCell
-        pCell.detailModels = dtDataSource[indexPath.row]
+        pCell.detailModels = dtDataSource[indexPath.item]
         
         // 当滑动到最后一个item的时候刷新调用首页的加载更多数据的接口,并传值过来
         if indexPath.item == dtDataSource.count - 1 {
