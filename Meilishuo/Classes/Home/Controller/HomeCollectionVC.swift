@@ -15,15 +15,11 @@ class HomeCollectionVC: UICollectionViewController {
     // MARK:-对内属性
     // 1.当前页码
     fileprivate var currentPage: Int = 1
-    // 2.详情页面控制器,用weak修饰它,避免循环引用
-    fileprivate weak var detailVC = DetailVC()
-    // 3.转场动画代理
-    fileprivate lazy var animationDelegate: HomeAnimation = { [weak self] in
-        $0.presentDelegate = self
-        $0.dismissDelegate = self
-        return $0
-    }(HomeAnimation())
-    // 4.首页的模型数据
+    // 2.1.弹出的动画模型
+    fileprivate lazy var presentAnimation = PresentAnimation()
+    // 2.2.退出的动画模型
+    fileprivate lazy var dismissAnimation = DismissAnimation()
+    // 3.首页的模型数据
     fileprivate var models : [ProductModel] = [ProductModel]() {
         didSet {
             collectionView?.reloadData()
@@ -51,7 +47,7 @@ extension HomeCollectionVC {
         }
     }
     
-    func loadMoreData() {
+    func loadMoreData(updateDetailClosure: DetailClosureType? = nil) {
         
         currentPage += 1
         // 不管失败还是成功,页码,每次访问都会加一,中间可能会漏掉好多数据
@@ -62,6 +58,12 @@ extension HomeCollectionVC {
                 self?.currentPage -= 1
             }
         }
+        
+        guard let updateDetailClosure = updateDetailClosure else {
+            return
+        }
+        
+        updateDetailClosure(self.models)
     }
 }
 
@@ -96,101 +98,30 @@ extension HomeCollectionVC {
     
     // 点击了cell
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = DetailVC()
-        self.detailVC = vc
-        vc.models = models
-        vc.scrollIndexPath = indexPath
+        let detailVc = DetailVC(detailDataSource: models, currentIndexPath: indexPath, homeCollectionView: collectionView) { [weak self] (updateDetailClosure: @escaping DetailClosureType) in
+            self?.loadMoreData(updateDetailClosure: updateDetailClosure)
+        }
         
         // 设置转场动画代理
-        vc.transitioningDelegate = animationDelegate;
-        
-        present(vc, animated: true, completion: nil)
+        detailVc.transitioningDelegate = self
+        // 2.给转场动画的模型赋值
+        let cell = collectionView.cellForItem(at: indexPath) as! ProductCell
+        let image = cell.imageView.image
+        presentAnimation.infoTuple = (image, cell)
+                
+        present(detailVc, animated: true, completion: nil)
     }
     
 }
 
-// MARK:-转动动画之present代理
-extension HomeCollectionVC: HomeAnimationPresentDelegate {
-    func presentAnimationView() -> UIView {
-        guard let currentIndexPath = collectionView?.indexPathsForSelectedItems?.first else {
-            return UIView()
-        }
-        
-        let model = models[currentIndexPath.row]
-        if let url = URL(string: model.hd_thumb_url) {
-            let imageView = UIImageView()
-            imageView.sd_setImage(with: url)
-            return imageView
-        }
-        
-        return UIView()
-
+extension HomeCollectionVC: UIViewControllerTransitioningDelegate {
+    /// 当控制器弹出另一个控制器的时候,会来到该方法
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return presentAnimation
     }
     
-    func presentAnimationFromFrame() -> CGRect {
-        guard let currentIndexPath = collectionView?.indexPathsForSelectedItems?.first else {
-            return CGRect.zero
-        }
-        
-        guard let cell = collectionView?.cellForItem(at: currentIndexPath) else {
-            return CGRect.zero
-        }
-        
-        let window = UIApplication.shared.keyWindow!
-        let resultFrame = collectionView?.convert(cell.frame, to: window) ?? CGRect.zero
-        
-        return resultFrame
+    /// 当控制器dismiss掉之后会来到该方法
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return dismissAnimation
     }
-    
-    func presentAnimationToFrame() -> CGRect {
-        return kScreenBounds
-    }
-    
-}
-
-// MARK:-转动动画之dismiss代理
-extension HomeCollectionVC: HomeAnimationDismissDelegate {
-    func dismissAnimationView() -> UIView {
-        let model = models[self.detailVC?.currentRow ?? 0]
-        if let url = URL(string: model.hd_thumb_url) {
-            let imageView = UIImageView()
-            imageView.sd_setImage(with: url)
-            return imageView
-        }
-        
-        return UIView()
-    }
-    
-    func dismissAnimationFromFrame() -> CGRect {
-        return kScreenBounds
-    }
-    
-    func dismissAnimationToFrame() -> CGRect {
-        let currentRow = self.detailVC?.currentRow ?? 0
-        let currentIndexPath = IndexPath(row: currentRow, section: 0)
-        
-        guard let cell = collectionView?.cellForItem(at: currentIndexPath) else {
-            var currentVisibleIndexPath = collectionView?.indexPathsForVisibleItems
-            
-            // 注意,这个数组不是从小到大的顺序排列的
-            // 排序
-            currentVisibleIndexPath?.sort(by: { (first, second) -> Bool in
-                return first.row < second.row
-            })
-            
-            let minRow = currentVisibleIndexPath?.first?.row ?? 0            
-            if currentIndexPath.row < minRow {
-                return CGRect.zero
-            } else {
-                return kScreenRightDown
-            }
-            
-        }
-        
-        let window = UIApplication.shared.keyWindow!
-        let resultFrame = collectionView?.convert(cell.frame, to: window) ?? CGRect.zero
-        
-        return resultFrame
-    }
-    
 }

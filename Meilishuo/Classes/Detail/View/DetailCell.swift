@@ -12,9 +12,14 @@ class DetailCell: UICollectionViewCell {
 
     // MARK:-对内属性
     // 1.展示图片的imageView
-    private lazy var imageView: UIImageView = {
-        return UIImageView(frame: self.bounds)
+    lazy var imageView: UIImageView = { [weak self] in
+        let imageView = UIImageView()
+        imageView.frame = self!.bounds
+        imageView.contentMode = .scaleAspectFit
+        self!.addSubview(imageView)
+        return imageView
     }()
+    
     // 2.传递过来的模型数据
     var models : ProductModel? {
         didSet {
@@ -26,13 +31,12 @@ class DetailCell: UICollectionViewCell {
         }
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        contentView.addSubview(imageView)
+    // MARK:-对外属性
+    // 当前cell显示的图片
+    var currentImage: UIImage {
+        return imageView.image ?? UIImage(named: "empty_picture")!
     }
     
-    required init(coder aDecoder: NSCoder) {
-        fatalError("不是用xib加载的")
-    }
+    
     
 }

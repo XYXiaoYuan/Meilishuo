@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		223955ECC91249EB64FBE4C5 /* Pods_Meilishuo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E603CD014962FF18541DE92B /* Pods_Meilishuo.framework */; };
+		EA61238E1EC6A06E00E0003A /* DismissAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA61238C1EC6A06E00E0003A /* DismissAnimation.swift */; };
+		EA61238F1EC6A06E00E0003A /* PresentAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA61238D1EC6A06E00E0003A /* PresentAnimation.swift */; };
 		EA8F65B41EC1AB83008E30B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA8F65B21EC1AB83008E30B1 /* Main.storyboard */; };
 		EA8F65B61EC1AB83008E30B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA8F65B51EC1AB83008E30B1 /* Assets.xcassets */; };
 		EA8F65CA1EC1AC20008E30B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8F65C71EC1AC20008E30B1 /* AppDelegate.swift */; };
@@ -19,15 +21,15 @@
 		EA8F65E71EC21517008E30B1 /* HomeDataTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8F65E61EC21517008E30B1 /* HomeDataTool.swift */; };
 		EA8F65EA1EC217BE008E30B1 /* HomeFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8F65E91EC217BE008E30B1 /* HomeFlowLayout.swift */; };
 		EA8F65F01EC2B2F1008E30B1 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8F65EE1EC2B2F1008E30B1 /* DetailVC.swift */; };
-		EA8F65F11EC2B2F1008E30B1 /* DetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA8F65EF1EC2B2F1008E30B1 /* DetailVC.xib */; };
 		EA8F65F41EC2B5D4008E30B1 /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8F65F21EC2B5D4008E30B1 /* DetailCell.swift */; };
 		EA8F65F81EC2B981008E30B1 /* DetailFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8F65F71EC2B981008E30B1 /* DetailFlowLayout.swift */; };
-		EA8F66091EC2D813008E30B1 /* HomeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8F66081EC2D813008E30B1 /* HomeAnimation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A3888E957CFF94D5F412375C /* Pods-Meilishuo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meilishuo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Meilishuo/Pods-Meilishuo.debug.xcconfig"; sourceTree = "<group>"; };
 		E603CD014962FF18541DE92B /* Pods_Meilishuo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Meilishuo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA61238C1EC6A06E00E0003A /* DismissAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissAnimation.swift; sourceTree = "<group>"; };
+		EA61238D1EC6A06E00E0003A /* PresentAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentAnimation.swift; sourceTree = "<group>"; };
 		EA8F65AB1EC1AB83008E30B1 /* Meilishuo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meilishuo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA8F65B31EC1AB83008E30B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EA8F65B51EC1AB83008E30B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -41,10 +43,8 @@
 		EA8F65E61EC21517008E30B1 /* HomeDataTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDataTool.swift; sourceTree = "<group>"; };
 		EA8F65E91EC217BE008E30B1 /* HomeFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeFlowLayout.swift; sourceTree = "<group>"; };
 		EA8F65EE1EC2B2F1008E30B1 /* DetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
-		EA8F65EF1EC2B2F1008E30B1 /* DetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailVC.xib; sourceTree = "<group>"; };
 		EA8F65F21EC2B5D4008E30B1 /* DetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
 		EA8F65F71EC2B981008E30B1 /* DetailFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailFlowLayout.swift; sourceTree = "<group>"; };
-		EA8F66081EC2D813008E30B1 /* HomeAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeAnimation.swift; sourceTree = "<group>"; };
 		FA02D3453DEB624A279A2F3D /* Pods-Meilishuo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meilishuo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Meilishuo/Pods-Meilishuo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -185,7 +185,6 @@
 			isa = PBXGroup;
 			children = (
 				EA8F65EE1EC2B2F1008E30B1 /* DetailVC.swift */,
-				EA8F65EF1EC2B2F1008E30B1 /* DetailVC.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -257,7 +256,8 @@
 		EA8F66071EC2D7F7008E30B1 /* Animate */ = {
 			isa = PBXGroup;
 			children = (
-				EA8F66081EC2D813008E30B1 /* HomeAnimation.swift */,
+				EA61238C1EC6A06E00E0003A /* DismissAnimation.swift */,
+				EA61238D1EC6A06E00E0003A /* PresentAnimation.swift */,
 			);
 			path = Animate;
 			sourceTree = "<group>";
@@ -327,7 +327,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA8F65B61EC1AB83008E30B1 /* Assets.xcassets in Resources */,
-				EA8F65F11EC2B2F1008E30B1 /* DetailVC.xib in Resources */,
 				EA8F65B41EC1AB83008E30B1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -391,14 +390,15 @@
 				EA8F65F41EC2B5D4008E30B1 /* DetailCell.swift in Sources */,
 				EA8F65F81EC2B981008E30B1 /* DetailFlowLayout.swift in Sources */,
 				EA8F65CA1EC1AC20008E30B1 /* AppDelegate.swift in Sources */,
+				EA61238E1EC6A06E00E0003A /* DismissAnimation.swift in Sources */,
 				EA8F65D51EC1ACED008E30B1 /* HomeCollectionVC.swift in Sources */,
+				EA61238F1EC6A06E00E0003A /* PresentAnimation.swift in Sources */,
 				EA8F65E11EC1BCDB008E30B1 /* ProductCell.swift in Sources */,
 				EA8F65D91EC1AFCC008E30B1 /* Const.swift in Sources */,
 				EA8F65F01EC2B2F1008E30B1 /* DetailVC.swift in Sources */,
 				EA8F65E41EC20C9F008E30B1 /* NetworkTool.swift in Sources */,
 				EA8F65EA1EC217BE008E30B1 /* HomeFlowLayout.swift in Sources */,
 				EA8F65DF1EC1B69A008E30B1 /* ProductModel.swift in Sources */,
-				EA8F66091EC2D813008E30B1 /* HomeAnimation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

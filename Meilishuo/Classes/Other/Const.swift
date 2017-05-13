@@ -22,3 +22,6 @@ let kTabBarH: CGFloat = 49.0
 
 // 请求的接口地址
 let kRequestURL = "http://apiv2.yangkeduo.com/operation/14/groups"
+
+// (在Home界面刷新完毕后)更新Detail界面的数据源的小闭包类型,作为大闭包的参数类型
+typealias DetailClosureType = ([ProductModel]) -> Void
