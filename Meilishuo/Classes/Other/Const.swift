@@ -20,8 +20,14 @@ let kNavBarMaxY: CGFloat = 64.0
 // TabBar的高度
 //let kTabBarH: CGFloat = 49.0
 
+// 每页显示Cell的数量
+private let perPageCount = 20
 // 请求的接口地址
-let kRequestURL = "http://apiv2.yangkeduo.com/operation/14/groups"
+let kRequestURL : (Int) -> String = {
+    "http://apiv2.yangkeduo.com/operation/15/groups?opt_type=1&size=\(perPageCount)&offset=\(perPageCount * ($0 - 1))"
+}
+
+
 
 // (在Home界面刷新完毕后)更新Detail界面的数据源的小闭包类型,作为大闭包的参数类型
 typealias DetailClosureType = ([ProductModel]) -> Void

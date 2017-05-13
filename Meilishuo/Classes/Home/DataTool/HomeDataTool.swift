@@ -19,27 +19,23 @@ class HomeDataTool: NSObject {
             return
         }
         
-        // 请求参数
-        let param = [
-            "opt_type" : 1,
-            "size" : 20,
-            "offset" : (page - 1) * 20]
+//        // 请求参数
+//        let param = [
+//            "opt_type" : 1,
+//            "size" : 20,
+//            "offset" : (page - 1) * 20]
         
         // 发送请求
-        NetworkTool.request(type: .get, url: kRequestURL, param: param) { (responseObj: Any?, error: Error?) in
+        HttpTool.loadRequest(kRequestURL(page), method: .get) {  (responseObj: [String : Any], error: Error?) in
             
             // 1.判断是否有错误
             if error != nil {
                 return
             }
             
-            // 2.1.取出响应体中的字典
-            guard let resultObj = responseObj as? [String: Any] else {
-                return
-            }
             
-            // 2.2.取出 goods_list 字典数组
-            guard let dictArray = resultObj["goods_list"] as? [[String: Any]] else {
+            // 2.取出 goods_list 字典数组
+            guard let dictArray = responseObj["goods_list"] as? [[String: Any]] else {
                 return
             }
             
@@ -52,7 +48,10 @@ class HomeDataTool: NSObject {
             
             // 4.返回数组
             result(models)
-            
         }
+//        NetworkTool.request(type: .get, url: kRequestURL, param: param) { (responseObj: Any?, error: Error?) in
+//            
+//            
+//        }
     }
 }
