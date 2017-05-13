@@ -19,12 +19,6 @@ class HomeDataTool: NSObject {
             return
         }
         
-//        // 请求参数
-//        let param = [
-//            "opt_type" : 1,
-//            "size" : 20,
-//            "offset" : (page - 1) * 20]
-        
         // 发送请求
         HttpTool.loadRequest(kRequestURL(page), method: .get) {  (responseObj: [String : Any], error: Error?) in
             
@@ -32,7 +26,6 @@ class HomeDataTool: NSObject {
             if error != nil {
                 return
             }
-            
             
             // 2.取出 goods_list 字典数组
             guard let dictArray = responseObj["goods_list"] as? [[String: Any]] else {
@@ -49,9 +42,6 @@ class HomeDataTool: NSObject {
             // 4.返回数组
             result(models)
         }
-//        NetworkTool.request(type: .get, url: kRequestURL, param: param) { (responseObj: Any?, error: Error?) in
-//            
-//            
-//        }
+
     }
 }
