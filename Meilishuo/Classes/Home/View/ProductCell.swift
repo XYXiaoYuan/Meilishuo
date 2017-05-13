@@ -13,9 +13,9 @@ class ProductCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     
-    var models : ProductModel? {
+    var productModels : ProductModel? {
         didSet {
-            guard let url = URL(string: models?.thumb_url ?? "") else {
+            guard let url = URL(string: productModels?.thumb_url ?? "") else {
                 return
             }
             

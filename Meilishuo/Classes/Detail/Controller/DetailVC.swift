@@ -14,7 +14,7 @@ class DetailVC: UICollectionViewController {
     
     // MARK:-对外属性
     // 1.从首页传递过来的模型数据
-    var models: [ProductModel] = [ProductModel]() {
+    var dtDataSource: [ProductModel] = [ProductModel]() {
         didSet {
             collectionView?.reloadData()
         }
@@ -31,11 +31,11 @@ class DetailVC: UICollectionViewController {
     fileprivate var loadHomeDataClosure: ((@escaping DetailClosureType) -> ())?
     
     // 自定义构造函数,内部用PhotoBrowserLayout进行布局
-    init(detailDataSource: [ProductModel],currentIndexPath: IndexPath, homeCollectionView: UICollectionView, loadHomeDataClosure: @escaping (@escaping DetailClosureType) -> Void) {
+    init(dtDataSource: [ProductModel],currentIndexPath: IndexPath, homeCollectionView: UICollectionView, loadHomeDataClosure: @escaping (@escaping DetailClosureType) -> Void) {
         super.init(collectionViewLayout: DetailFlowLayout())
         
         // 1.更新数据源,内部会同步刷新表格
-        self.models = detailDataSource
+        self.dtDataSource = dtDataSource
         // 2.跳转到指定的位置
         collectionView?.scrollToItem(at: currentIndexPath, at: .left, animated: false)
         // 3.保存刷新Home界面更多数据操作的大闭包
@@ -109,7 +109,7 @@ extension DetailVC {
 extension DetailVC {
     // 返回每组有多少个item
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return models.count
+        return dtDataSource.count
     }
 
     // 负责创建cell
@@ -128,12 +128,12 @@ extension DetailVC {
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         // 设置数据源
         let pCell = cell as! DetailCell
-        pCell.models = models[indexPath.row]
+        pCell.detailModels = dtDataSource[indexPath.row]
         
         // 当滑动到最后一个item的时候刷新调用首页的加载更多数据的接口,并传值过来
-        if indexPath.item == models.count - 1 {
+        if indexPath.item == dtDataSource.count - 1 {
             loadHomeDataClosure?({ [weak self] (dataSource: [ProductModel]) -> () in
-                self?.models = dataSource
+                self?.dtDataSource = dataSource
             })
         }
         

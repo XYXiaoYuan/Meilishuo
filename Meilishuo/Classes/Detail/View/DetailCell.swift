@@ -21,9 +21,9 @@ class DetailCell: UICollectionViewCell {
     }()
     
     // 2.传递过来的模型数据
-    var models : ProductModel? {
+    var detailModels : ProductModel? {
         didSet {
-            guard let url = URL(string: models?.hd_thumb_url ?? "") else {
+            guard let url = URL(string: detailModels?.hd_thumb_url ?? "") else {
                 return
             }
             

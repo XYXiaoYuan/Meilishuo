@@ -20,7 +20,7 @@ class HomeCollectionVC: UICollectionViewController {
     // 2.2.退出的动画模型
     fileprivate lazy var dismissAnimation = DismissAnimation()
     // 3.首页的模型数据
-    fileprivate var models : [ProductModel] = [ProductModel]() {
+    fileprivate var homeDataSource : [ProductModel] = [ProductModel]() {
         didSet {
             collectionView?.reloadData()
         }
@@ -43,7 +43,7 @@ extension HomeCollectionVC {
     fileprivate func loadData() {
         
         HomeDataTool.requestHomeDataList { [weak self] (models: [ProductModel]) in
-            self?.models = models
+            self?.homeDataSource = models
         }
     }
     
@@ -52,7 +52,7 @@ extension HomeCollectionVC {
         currentPage += 1
         // 不管失败还是成功,页码,每次访问都会加一,中间可能会漏掉好多数据
         HomeDataTool.requestHomeDataList(page: currentPage) { [weak self] (models: [ProductModel]) in
-            self?.models += models;
+            self?.homeDataSource += models;
             
             if models.count == 0 {
                 self?.currentPage -= 1
@@ -63,7 +63,7 @@ extension HomeCollectionVC {
             return
         }
         
-        updateDetailClosure(self.models)
+        updateDetailClosure(self.homeDataSource)
     }
 }
 
@@ -71,7 +71,7 @@ extension HomeCollectionVC {
 extension HomeCollectionVC {
     // 返回每组有多少个item
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return models.count
+        return homeDataSource.count
     }
     
     // 负责创建cell
@@ -87,18 +87,18 @@ extension HomeCollectionVC {
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let pCell = cell as! ProductCell
         
-        pCell.models = models[indexPath.row]
+        pCell.productModels = homeDataSource[indexPath.row]
         
         print(indexPath.row)
         // 最后一个显示的时候,加载下一页
-        if indexPath.row == models.count - 1 {
+        if indexPath.row == homeDataSource.count - 1 {
             loadMoreData()
         }
     }
     
     // 点击了cell
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let detailVc = DetailVC(detailDataSource: models, currentIndexPath: indexPath, homeCollectionView: collectionView) { [weak self] (updateDetailClosure: @escaping DetailClosureType) in
+        let detailVc = DetailVC(dtDataSource: homeDataSource, currentIndexPath: indexPath, homeCollectionView: collectionView) { [weak self] (updateDetailClosure: @escaping DetailClosureType) in
             self?.loadMoreData(updateDetailClosure: updateDetailClosure)
         }
         
