@@ -20,16 +20,6 @@ class DetailCell: UICollectionViewCell {
         return imageView
     }()
     
-    // 2.传递过来的模型数据
-    var detailModels : ProductModel? {
-        didSet {
-            guard let url = URL(string: detailModels?.hd_thumb_url ?? "") else {
-                return
-            }
-            
-            imageView.sd_setImage(with: url, placeholderImage: UIImage(named: "empty_picture"))
-        }
-    }
     
     // MARK:-对外属性
     // 当前cell显示的图片

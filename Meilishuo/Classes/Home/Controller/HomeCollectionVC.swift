@@ -99,15 +99,16 @@ extension HomeCollectionVC {
     
     // 点击了cell
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let detailVc = DetailVC(dtDataSource: homeDataSource, currentIndexPath: indexPath, homeCollectionView: collectionView) { [weak self] (updateDetailClosure: @escaping DetailClosureType) in
+        let cell = collectionView.cellForItem(at: indexPath) as! ProductCell
+        let image = cell.imageView.image
+        
+        let detailVc = DetailVC(dtDataSource: homeDataSource, currentIndexPath: indexPath, homeCollectionView: collectionView, currentImage: image!) { [weak self] (updateDetailClosure: @escaping DetailClosureType) in
             self?.loadMoreData(updateDetailClosure: updateDetailClosure)
         }
         
         // 设置转场动画代理
         detailVc.transitioningDelegate = self
         // 2.给转场动画的模型赋值
-        let cell = collectionView.cellForItem(at: indexPath) as! ProductCell
-        let image = cell.imageView.image
         presentAnimation.infoTuple = (image, cell)
                 
         present(detailVc, animated: true, completion: nil)

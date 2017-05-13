@@ -23,6 +23,11 @@ class DetailVC: UICollectionViewController {
     // 2.主界面的collectionView
     var homeCollectionView: UICollectionView?
 
+    // 3.主界面传递过来的 thumb_url 下载好的对应的图片
+    lazy var currentImage: UIImage = {
+        let currentImage = UIImage()
+        return currentImage
+    }()
     
     // 功能: 用于在DetailVC界面触发更新Home界面刷新操作,然后在Home界面刷新完毕后更新DetailVC界面的数据源,从而触发该界面刷新数据
     // 参数: 参数是一个子闭包,该闭包保存"在闭包内部的代码执行完毕(即在Home界面刷新完毕后),更新DetailVC界面的数据源"的操作代码 (DetailClosureType)
@@ -31,7 +36,7 @@ class DetailVC: UICollectionViewController {
     fileprivate var loadHomeDataClosure: ((@escaping DetailClosureType) -> ())?
     
     // 自定义构造函数,内部用PhotoBrowserLayout进行布局
-    init(dtDataSource: [ProductModel],currentIndexPath: IndexPath, homeCollectionView: UICollectionView, loadHomeDataClosure: @escaping (@escaping DetailClosureType) -> Void) {
+    init(dtDataSource: [ProductModel],currentIndexPath: IndexPath, homeCollectionView: UICollectionView, currentImage: UIImage,loadHomeDataClosure: @escaping (@escaping DetailClosureType) -> Void) {
         super.init(collectionViewLayout: DetailFlowLayout())
         
         // 1.更新数据源,内部会同步刷新表格
@@ -42,6 +47,8 @@ class DetailVC: UICollectionViewController {
         self.loadHomeDataClosure = loadHomeDataClosure
         // 4.记录主界面的CollectionView
         self.homeCollectionView = homeCollectionView
+        // 5.主界面传递过来的 thumb_url 下载好的对应的图片
+        self.currentImage = currentImage
     }
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -130,7 +137,11 @@ extension DetailVC {
 
         // 设置数据源
         let pCell = cell as! DetailCell
-        pCell.detailModels = dtDataSource[indexPath.item]
+        guard let url = URL(string: dtDataSource[indexPath.item].hd_thumb_url) else {
+            return
+        }
+        
+        pCell.imageView .sd_setImage(with: url, placeholderImage: self.currentImage)
         
         // 当滑动到最后一个item的时候刷新调用首页的加载更多数据的接口,并传值过来
         if indexPath.item == dtDataSource.count - 1 {
