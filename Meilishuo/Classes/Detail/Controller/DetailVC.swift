@@ -24,9 +24,7 @@ class DetailVC: UICollectionViewController {
     var homeCollectionView: UICollectionView?
 
     // 3.主界面传递过来的 thumb_url 下载好的对应的图片
-    lazy var currentImage: UIImage = {
-        return $0
-    }(UIImage())
+    lazy var currentImage = UIImage().then{_ in }
     
     // 功能: 用于在DetailVC界面触发更新Home界面刷新操作,然后在Home界面刷新完毕后更新DetailVC界面的数据源,从而触发该界面刷新数据
     // 参数: 参数是一个子闭包,该闭包保存"在闭包内部的代码执行完毕(即在Home界面刷新完毕后),更新DetailVC界面的数据源"的操作代码 (DetailClosureType)

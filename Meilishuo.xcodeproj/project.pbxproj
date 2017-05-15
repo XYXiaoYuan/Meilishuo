@@ -24,6 +24,7 @@
 		EA8F65F01EC2B2F1008E30B1 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8F65EE1EC2B2F1008E30B1 /* DetailVC.swift */; };
 		EA8F65F41EC2B5D4008E30B1 /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8F65F21EC2B5D4008E30B1 /* DetailCell.swift */; };
 		EA8F65F81EC2B981008E30B1 /* DetailFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8F65F71EC2B981008E30B1 /* DetailFlowLayout.swift */; };
+		EACF56261EC9B1DF008EC7AD /* Thanable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACF56251EC9B1DF008EC7AD /* Thanable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		EA8F65EE1EC2B2F1008E30B1 /* DetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		EA8F65F21EC2B5D4008E30B1 /* DetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
 		EA8F65F71EC2B981008E30B1 /* DetailFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailFlowLayout.swift; sourceTree = "<group>"; };
+		EACF56251EC9B1DF008EC7AD /* Thanable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thanable.swift; sourceTree = "<group>"; };
 		FA02D3453DEB624A279A2F3D /* Pods-Meilishuo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meilishuo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Meilishuo/Pods-Meilishuo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,20 +153,12 @@
 		EA8F65C41EC1AC20008E30B1 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				EACF56221EC9B188008EC7AD /* Protocol */,
 				EA8F65E21EC20C8F008E30B1 /* Network */,
-				EA8F65C51EC1AC20008E30B1 /* Category */,
 				EA8F65C61EC1AC20008E30B1 /* System */,
-				EA8F65C91EC1AC20008E30B1 /* Tool */,
 				EA8F65D81EC1AFCC008E30B1 /* Const.swift */,
 			);
 			path = Other;
-			sourceTree = "<group>";
-		};
-		EA8F65C51EC1AC20008E30B1 /* Category */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Category;
 			sourceTree = "<group>";
 		};
 		EA8F65C61EC1AC20008E30B1 /* System */ = {
@@ -174,13 +168,6 @@
 				EA8F65C81EC1AC20008E30B1 /* Info.plist */,
 			);
 			path = System;
-			sourceTree = "<group>";
-		};
-		EA8F65C91EC1AC20008E30B1 /* Tool */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Tool;
 			sourceTree = "<group>";
 		};
 		EA8F65CC1EC1ACAE008E30B1 /* Controller */ = {
@@ -263,6 +250,14 @@
 				EA61238D1EC6A06E00E0003A /* PresentAnimation.swift */,
 			);
 			path = Animate;
+			sourceTree = "<group>";
+		};
+		EACF56221EC9B188008EC7AD /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				EACF56251EC9B1DF008EC7AD /* Thanable.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -393,6 +388,7 @@
 				EA8F65F41EC2B5D4008E30B1 /* DetailCell.swift in Sources */,
 				EA8F65F81EC2B981008E30B1 /* DetailFlowLayout.swift in Sources */,
 				EA8F65CA1EC1AC20008E30B1 /* AppDelegate.swift in Sources */,
+				EACF56261EC9B1DF008EC7AD /* Thanable.swift in Sources */,
 				EA61238E1EC6A06E00E0003A /* DismissAnimation.swift in Sources */,
 				EA8F65D51EC1ACED008E30B1 /* HomeCollectionVC.swift in Sources */,
 				EA61238F1EC6A06E00E0003A /* PresentAnimation.swift in Sources */,
