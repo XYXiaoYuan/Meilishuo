@@ -12,13 +12,12 @@ class DetailCell: UICollectionViewCell {
 
     // MARK:-对内属性
     // 1.展示图片的imageView
-    lazy var imageView: UIImageView = { [weak self] in
-        let imageView = UIImageView()
-        imageView.frame = self!.bounds
-        imageView.contentMode = .scaleAspectFit
-        self!.addSubview(imageView)
-        return imageView
-    }()
+    lazy var imageView: UIImageView = {
+        $0.frame = self.bounds
+        $0.contentMode = .scaleAspectFit
+        self.addSubview($0)
+        return $0
+    }(UIImageView())
     
     
     // MARK:-对外属性

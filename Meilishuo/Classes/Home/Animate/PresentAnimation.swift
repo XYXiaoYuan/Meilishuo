@@ -11,10 +11,9 @@ import UIKit
 class PresentAnimation: NSObject {
     /// imageView用于做放大动画
     fileprivate lazy var imageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
+        $0.contentMode = .scaleAspectFit
+        return $0
+    }(UIImageView())
     
     /// 获取主界面的图片,将图片放到imageView里面
     var infoTuple: (currentImage: UIImage?, superView: UIView)? {
