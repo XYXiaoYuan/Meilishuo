@@ -34,10 +34,12 @@ class HomeDataTool: NSObject {
             
             // 3.定义模型并拼接成数组
             var models = [ProductModel]()
-            for dict in dictArray {
-                let p = ProductModel(dict)
-                models.append(p)
-            }
+            models.append(contentsOf: dictArray.map{ ProductModel(dict: $0) })
+//            models.append(dictArray.map {ProductModel(dict: $0)})
+//            for dict in dictArray {
+//                let p = ProductModel(dict)
+//                models.append(p)
+//            }
             
             // 4.返回数组
             result(models)

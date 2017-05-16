@@ -14,7 +14,7 @@ class ProductModel: NSObject {
     // 高清图
     var hd_thumb_url : String = ""
 
-    init(_ dict : [String : Any]) {
+    init(dict : [String : Any]) {
         super.init()
         setValuesForKeys(dict)
     }
