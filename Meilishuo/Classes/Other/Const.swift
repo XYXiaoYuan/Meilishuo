@@ -14,6 +14,9 @@ let kScreenW = kScreenBounds.size.width
 let kScreenH = kScreenBounds.size.height
 let kScreenSize = CGSize(width: kScreenW, height: kScreenH)
 let kScreenRightDown = CGRect(x: kScreenW, y: kScreenH, width: 0, height: 0)
+// 屏幕高度比率,此处以4.7英寸屏幕(6&6s7&7s)为基准
+let kScreenWScale = kScreenW / 375
+let kScreenHScale = kScreenH / 667
 
 // 导航栏最大的Y值
 let kNavBarMaxY: CGFloat = 64.0

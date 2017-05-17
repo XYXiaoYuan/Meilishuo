@@ -25,12 +25,21 @@ class HomeCollectionVC: UICollectionViewController {
             collectionView?.reloadData()
         }
     }
-    
+    // 4.回到顶部按钮
+    fileprivate lazy var backTopButton: UIButton = {
+        $0.frame = CGRect(x: kScreenW - 60 * kScreenWScale, y: kScreenH * 0.85, width: 40, height: 40)
+        $0.setImage(UIImage(named: "back_top_button"), for: UIControlState())
+        $0.addTarget(self, action: #selector(backTopButtonClick(_:)), for: UIControlEvents.touchUpInside)
+        return $0
+    }(UIButton())
+
     // MARK:-生命周期入口
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         navigationItem.title = "美丽说瀑布流"
+        view.addSubview(backTopButton)
+        backTopButton.isHidden = true
         
         // 加载数据
         loadData()
@@ -39,6 +48,11 @@ class HomeCollectionVC: UICollectionViewController {
 
 // MARK:- 私有方法
 extension HomeCollectionVC {
+    
+    //返回顶部按钮事件
+    func backTopButtonClick(_ sender: UIButton) {
+        collectionView?.scrollToItem(at: IndexPath(row: 0, section: 0), at: .bottom, animated: true)
+    }
     
     fileprivate func loadData() {
         
@@ -125,5 +139,13 @@ extension HomeCollectionVC: UIViewControllerTransitioningDelegate {
     /// 当控制器dismiss掉之后会来到该方法
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return dismissAnimation
+    }
+}
+
+extension HomeCollectionVC {
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        let isShow: Bool = collectionView!.contentOffset.y > view.frame.size.height * 0.5
+        backTopButton.isHidden = !isShow
     }
 }
