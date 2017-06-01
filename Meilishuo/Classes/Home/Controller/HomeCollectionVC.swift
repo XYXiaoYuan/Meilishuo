@@ -20,7 +20,7 @@ class HomeCollectionVC: UICollectionViewController {
     // 2.2.退出的动画模型
     fileprivate lazy var dismissAnimation = DismissAnimation()
     // 3.首页的模型数据
-    fileprivate var homeDataSource : [ProductModel] = [ProductModel]() {
+    fileprivate var homeDataSource: [ProductModel] = [ProductModel]() {
         didSet {
             collectionView?.reloadData()
         }
@@ -79,7 +79,11 @@ extension HomeCollectionVC {
 
             self?.homeDataSource += models
 
-            updateDetailClosure((self?.homeDataSource)!)
+            guard let homeDataSource = self?.homeDataSource else {
+                return
+            }
+
+            updateDetailClosure(homeDataSource)
 
         }
 
