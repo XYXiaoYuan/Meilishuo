@@ -61,12 +61,12 @@ extension PresentAnimation: UIViewControllerAnimatedTransitioning {
         UIView.animate(withDuration: duration, animations: {
             // 设置imageView的大小为全屏
             self.imageView.frame = UIScreen.main.bounds
-        }) { (_) in
+        }, completion: { (finished:Bool) in
             self.imageView.removeFromSuperview()
             let toView = transitionContext.view(forKey: .to) ?? UIView()
             containerView.addSubview(toView)
             // 告诉系统动画执行完了
             transitionContext.completeTransition(true)
-        }
+        })
     }
 }
