@@ -23,11 +23,12 @@ class BackToTopButton: UIButton {
 
         super.willMove(toSuperview: newSuperview)
 
-        if (newSuperview?.isKind(of: UIScrollView.self))! {
+        if (newSuperview?.isKind(of: UIScrollView.self) ?? false) {
             scrollView = newSuperview as! UIScrollView
 
             // 用KVO来监听父控件的滚动
             scrollView.addObserver(self, forKeyPath: "contentOffset", options: .new, context: nil)
+
         }
     }
 

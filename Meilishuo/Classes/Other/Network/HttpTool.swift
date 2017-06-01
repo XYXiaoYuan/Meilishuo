@@ -33,7 +33,8 @@ public enum HTTPToolMethod: String {
 }
 
 class HttpTool: NSObject {
-    static func loadRequest(_ urlString: String, method: HTTPToolMethod, callBack: @escaping ([String : Any], Error?) -> Void) {
+
+    static func loadRequest(_ urlString: String, method: HTTPToolMethod, callBack: @escaping ([String: Any], Error?) -> Void) {
         guard let method = HTTPMethod(rawValue: method.rawValue) else {
             return
         }
@@ -41,7 +42,7 @@ class HttpTool: NSObject {
         Alamofire.request(urlString, method: method).responseJSON { (response: DataResponse<Any>) in
             switch response.result {
             case .success(let value):
-                callBack((value as? [String : Any]) ?? [:], nil)
+                callBack((value as? [String: Any]) ?? [ : ], nil)
             case .failure(let error):
                 callBack([:], error)
             }
@@ -51,6 +52,7 @@ class HttpTool: NSObject {
 
 // MARK: - 为便于理解,写出的完整形式的请求方法的实现
 extension HTTPToolMethod {
+
     static func loadRequest2(_ urlString: String, method: HTTPToolMethod) {
         // 根据HTTPToolMethod参数,来初始化HTTPMethod对象
         guard let method = HTTPMethod(rawValue: method.rawValue) else {
@@ -60,7 +62,7 @@ extension HTTPToolMethod {
         // 根据url发送请求,返回一个请求对象
         let request: DataRequest = Alamofire.request(urlString, method: method)
 
-        // responseJSON方法的参数说明:
+        // ResponseJSON方法的参数说明:
         /// Adds a handler to be called once the request has finished.
         ///
         /// - parameter options:           The JSON serialization reading options. Defaults to `.allowFragments`.
@@ -76,14 +78,5 @@ extension HTTPToolMethod {
                 print(error)
             }
         })
-        // 上一条语句的完整写法
-//        request.responseJSON(queue: nil, options: .allowFragments) { (response: DataResponse<Any>) in
-//            switch response.result {
-//            case .success(let value):
-//                print(value)
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
     }
 }

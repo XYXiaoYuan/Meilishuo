@@ -85,9 +85,9 @@ extension DismissAnimation: UIViewControllerAnimatedTransitioning {
         UIView.animate(withDuration: duration, animations: {
             // 改变imageView的frame
             imageView.frame = frame
-        }) { (_) in
+        }, completion: { (finished:Bool) in
             imageView.removeFromSuperview()
-        }
+        })
 
         // 告诉系统动画执行完了
         transitionContext.completeTransition(true)

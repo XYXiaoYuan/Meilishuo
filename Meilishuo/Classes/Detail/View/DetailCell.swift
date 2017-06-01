@@ -18,10 +18,10 @@ class DetailCell: UICollectionViewCell {
         self.addSubview($0)
     }
 
-   // MARK: - 对外属性
+    // MARK: - 对外属性
     // 当前cell显示的图片
-    var currentImage: UIImage {
-        return imageView.image ?? UIImage(named: "empty_picture")!
-    }
-
+    lazy var currentImage: UIImage = {
+        self.imageView.image = UIImage(named: "empty_picture")
+        return $0
+    }(UIImage())
 }

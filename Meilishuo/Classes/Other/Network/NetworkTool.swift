@@ -33,7 +33,7 @@ class NetworkTool: NSObject {
         // AFN请求管理者
         let manager = AFHTTPSessionManager()
 
-        // get请求
+        // Get请求
         if (type == .get) {
 
             manager.get(url, parameters: param, progress: nil, success: successBlock, failure:failBlock)
