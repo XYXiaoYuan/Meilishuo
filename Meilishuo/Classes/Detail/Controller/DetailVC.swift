@@ -21,7 +21,7 @@ class DetailVC: UICollectionViewController {
     }
 
     // 2.主界面的collectionView
-    var homeCollectionView: UICollectionView?
+    var homeCollectionView: UICollectionView!
 
     // 3.主界面传递过来的 thumb_url 下载好的对应的图片
     lazy var currentImage: UIImage = UIImage()
