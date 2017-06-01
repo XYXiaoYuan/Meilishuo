@@ -9,6 +9,17 @@
 import UIKit
 import Alamofire
 
+/// 请求方法
+///
+/// - options: options description
+/// - get: get description
+/// - head: head description
+/// - post: post description
+/// - put: put description
+/// - patch: patch description
+/// - delete: delete description
+/// - trace: trace description
+/// - connect: connect description
 public enum HTTPToolMethod: String {
     case options = "OPTIONS"
     case get     = "GET"

@@ -21,7 +21,7 @@ let kScreenHScale = kScreenH / 667
 // 导航栏最大的Y值
 let kNavBarMaxY: CGFloat = 64.0
 // TabBar的高度
-//let kTabBarH: CGFloat = 49.0
+// let kTabBarH: CGFloat = 49.0
 
 // 每页显示Cell的数量
 private let perPageCount = 20

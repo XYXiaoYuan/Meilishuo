@@ -13,6 +13,7 @@ class DismissAnimation: NSObject {
 }
 
 extension DismissAnimation: UIViewControllerAnimatedTransitioning {
+
     /// 动画的执行时间
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 1.0
@@ -63,7 +64,7 @@ extension DismissAnimation: UIViewControllerAnimatedTransitioning {
         // 获取主界面的可见的最后一个cell的indexPath
         let lastHomeIndexPath = indexPathsForVisibleItems.last ?? IndexPath()
         // 判断主界面的indexPath与当前from的indexPath的大小
-        if lastHomeIndexPath < fromIndexPath {
+        if (lastHomeIndexPath < fromIndexPath) {
             frame.origin.y = UIScreen.main.bounds.height
         }
 
@@ -87,6 +88,7 @@ extension DismissAnimation: UIViewControllerAnimatedTransitioning {
         }) { (_) in
             imageView.removeFromSuperview()
         }
+
         // 告诉系统动画执行完了
         transitionContext.completeTransition(true)
     }

@@ -46,8 +46,11 @@ class DetailVC: UICollectionViewController {
         self.homeCollectionView = homeCollectionView
         // 5.主界面传递过来的 thumb_url 下载好的对应的图片
         self.currentImage = currentImage
+
     }
+
     required init?(coder aDecoder: NSCoder) {
+
         super.init(coder: aDecoder)
     }
 
@@ -64,6 +67,7 @@ class DetailVC: UICollectionViewController {
 
 // MARK: - 设置UI
 extension DetailVC {
+
     fileprivate func setupUI() {
         createButton(title: "退出", isLeft: true, action: #selector(exitHandle))
         createButton(title: "保存", isLeft: false, action: #selector(saveHandle))
@@ -108,6 +112,7 @@ extension DetailVC {
 
 // MARK: - UICollectionViewDataSource
 extension DetailVC {
+
     // 返回每组有多少个item
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dtDataSource.count

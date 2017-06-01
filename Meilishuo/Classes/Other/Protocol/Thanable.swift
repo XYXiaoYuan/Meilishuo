@@ -39,7 +39,7 @@ extension Then where Self: AnyObject {
     ///     }
 
     public func then( block: (Self) -> Void) -> Self {
-        
+
         block(self)
         return self
     }

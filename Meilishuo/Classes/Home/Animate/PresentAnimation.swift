@@ -9,8 +9,9 @@
 import UIKit
 
 class PresentAnimation: NSObject {
+
     /// imageView用于做放大动画
-    fileprivate lazy var imageView =  UIImageView().then {
+    fileprivate lazy var imageView = UIImageView().then {
         $0.contentMode = .scaleAspectFit
     }
 
@@ -30,6 +31,7 @@ class PresentAnimation: NSObject {
 }
 
 extension PresentAnimation: UIViewControllerAnimatedTransitioning {
+
     /// 动画的执行时间
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 1.0

@@ -15,7 +15,7 @@ class HomeDataTool: NSObject {
     static func requestHomeDataList(page: Int = 1, result: @escaping ([ProductModel]) -> Void) {
 
         // 传递过来的page参数容错处理
-        if page <= 0 {
+        if (page <= 0) {
             return
         }
 
@@ -23,7 +23,7 @@ class HomeDataTool: NSObject {
         HttpTool.loadRequest(kRequestURL(page), method: .get) {  (responseObj: [String : Any], error: Error?) in
 
             // 1.判断是否有错误
-            if error != nil {
+            if (error != nil) {
                 return
             }
 

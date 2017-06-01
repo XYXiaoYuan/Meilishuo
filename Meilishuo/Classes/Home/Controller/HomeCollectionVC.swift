@@ -110,7 +110,7 @@ extension HomeCollectionVC {
 
         print("首页\(indexPath.item)🍀")
         // 最后一个显示的时候,加载下一页
-        if indexPath.item == homeDataSource.count - 1 {
+        if (indexPath.item == homeDataSource.count - 1) {
             loadMoreData()
         }
     }

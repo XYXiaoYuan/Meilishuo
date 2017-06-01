@@ -15,17 +15,18 @@ enum RequestType {
 }
 
 class NetworkTool: NSObject {
+
     static func request(type: RequestType, url: String, param: [String: Any], resultBlock: @escaping (Any?, Error?) -> Void) {
 
         // 成功的block
         let successBlock = {
-            (task: URLSessionDataTask, responseObj: Any?) -> Void in
+            (task: URLSessionDataTask, responseObj: Any?) in
             resultBlock(responseObj, nil)
         }
 
         // 失败的block
         let failBlock = {
-            (task: URLSessionDataTask?, error: Error) -> Void in
+            (task: URLSessionDataTask?, error: Error) in
             resultBlock(nil, error)
         }
 
@@ -33,7 +34,7 @@ class NetworkTool: NSObject {
         let manager = AFHTTPSessionManager()
 
         // get请求
-        if type == .get {
+        if (type == .get) {
 
             manager.get(url, parameters: param, progress: nil, success: successBlock, failure:failBlock)
 

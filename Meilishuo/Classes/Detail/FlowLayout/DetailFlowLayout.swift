@@ -9,6 +9,7 @@
 import UIKit
 
 class DetailFlowLayout: UICollectionViewFlowLayout {
+
     //  当collectionView,想要使用布局对象,布局里面的cell的时候,会调用布局对象的这个方法
     override func prepare() {
 
