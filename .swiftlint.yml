@@ -11,6 +11,8 @@ disabled_rules: # Rule identifiers to exclude from running
   - force_cast # 强制解包
   - variable_name # 变量名字
   - missing_docs # 文档注释
+  - private_outlet
+  - unnecessary_type
   - colon # Exaclty one space after the : >>> let abc: Void\n
   - control_statement # No rounded brackets around conditions. we would need this the other way around
   - todo # TODO can be written in the code but should be linked to a ticket on JIRA.
@@ -25,12 +27,6 @@ disabled_rules: # Rule identifiers to exclude from running
 excluded: # paths to ignore during linting. overridden by `included`.
   - Carthage
   - Pods
-  - External
-  - Submodules
-  - Generated
-  - Core/Model/CoreData
-  - Database/Model
-  - fastlane
 
 # rule parameters
 file_length:
@@ -127,11 +123,11 @@ custom_rules:
     regex: "(-> (Void|\(\)) in$)"
     message: "Unnecessary '-> Void in' at the end of the line. Use only 'in'"
     severity: warning
-  unnecessary_type:
-    name: "Unnecessary Type"
-    regex: "(?sm)[ \ta-zA-Z0-9]?(?:let|var){1} [ \ta-zA-Z0-9]+?:[ \t]+?([a-zA-Z0-9]+?)[\t ]+?=[\t ]?\1"
-    message: "Type Definition Not Needed"
-    severity: warning
+#unnecessary_type:
+#name: "Unnecessary Type"
+#regex: "(?sm)[ \ta-zA-Z0-9]?(?:let|var){1} [ \ta-zA-Z0-9]+?:[ \t]+?([a-zA-Z0-9]+?)[\t ]+?=[\t ]?\1"
+#message: "Type Definition Not Needed"
+#severity: warning
   missing_brackets:
     name: "Missing brackets"
     regex: "(^(\t| )*(if|\} else if) (((?!(let|var|\())).)*\{)"

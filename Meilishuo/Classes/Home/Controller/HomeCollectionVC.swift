@@ -78,6 +78,7 @@ extension HomeCollectionVC {
             }
 
             self?.homeDataSource += models
+
             updateDetailClosure((self?.homeDataSource)!)
 
         }
@@ -118,9 +119,11 @@ extension HomeCollectionVC {
     // 点击了cell
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! ProductCell
-        let image = cell.imageView.image
+        guard let image = cell.imageView.image else {
+            return
+        }
 
-        let detailVc = DetailVC(dtDataSource: homeDataSource, currentIndexPath: indexPath, homeCollectionView: collectionView, currentImage: image!) { [weak self] (updateDetailClosure: @escaping DetailClosureType) in
+        let detailVc = DetailVC(dtDataSource: homeDataSource, currentIndexPath: indexPath, homeCollectionView: collectionView, currentImage: image) { [weak self] (updateDetailClosure: @escaping DetailClosureType) in
             self?.loadMoreData(updateDetailClosure: updateDetailClosure)
         }
 
@@ -151,7 +154,11 @@ extension HomeCollectionVC {
 
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
-        let isShow: Bool = collectionView!.contentOffset.y > view.frame.size.height * 0.5
+        guard let collectionView = collectionView else {
+            return
+        }
+
+        let isShow: Bool = collectionView.contentOffset.y > view.frame.size.height * 0.5
         backTopButton.isHidden = !isShow
     }
 }

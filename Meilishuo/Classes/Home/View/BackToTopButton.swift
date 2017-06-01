@@ -31,12 +31,12 @@ class BackToTopButton: UIButton {
         }
 
         // 用KVO来监听父控件的滚动
-        scrollView.addObserver(self, forKeyPath: "contentOffset", options: .new, context: nil)
+        self.scrollView.addObserver(self, forKeyPath: "contentOffset", options: .new, context: nil)
 
     }
 
     deinit {
-        scrollView .removeObserver(self, forKeyPath: "contentOffset")
+        self.scrollView .removeObserver(self, forKeyPath: "contentOffset")
     }
 
 }

@@ -55,6 +55,7 @@ extension DismissAnimation: UIViewControllerAnimatedTransitioning {
 
         // 初始化imageView的frame
         var frame = CGRect()
+
         // 获取主界面的可见的最后一个cell
         var indexPathsForVisibleItems = fromVC.homeCollectionView!.indexPathsForVisibleItems
         indexPathsForVisibleItems = indexPathsForVisibleItems.sorted(by: { (indexPath1, indexPath2) -> Bool in
