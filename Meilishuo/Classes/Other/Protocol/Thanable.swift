@@ -23,10 +23,8 @@ extension Then where Self: Any {
          }
 
      */
-    /// Description
-    ///
-    /// - Parameter block: block description
-    /// - Returns: return value description
+
+    /// Then语法糖
     public func then( block: (inout Self) -> Void) -> Self {
 
         var copy = self
@@ -47,10 +45,8 @@ extension Then where Self: AnyObject {
          }
 
     */
-    /// Description
-    ///
-    /// - Parameter block: block description
-    /// - Returns: return value description
+
+    /// Then语法糖
     public func then( block: (Self) -> Void) -> Self {
 
         block(self)
