@@ -10,6 +10,7 @@
 disabled_rules: # Rule identifiers to exclude from running
   - force_cast # 强制解包
   - variable_name # 变量名字
+  - missing_docs # 文档注释
   - colon # Exaclty one space after the : >>> let abc: Void\n
   - control_statement # No rounded brackets around conditions. we would need this the other way around
   - todo # TODO can be written in the code but should be linked to a ticket on JIRA.
