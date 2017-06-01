@@ -13,14 +13,14 @@ class PresentAnimation: NSObject {
     fileprivate lazy var imageView =  UIImageView().then {
         $0.contentMode = .scaleAspectFit
     }
-    
+
     /// 获取主界面的图片,将图片放到imageView里面
     var infoTuple: (currentImage: UIImage?, superView: UIView)? {
         didSet {
             guard let currentImage = infoTuple?.currentImage, let supView = infoTuple?.superView else {
                 return
             }
-            
+
             // 给imageView赋值图片
             imageView.image = currentImage
             // 将supView的位置转换到window上
@@ -34,7 +34,7 @@ extension PresentAnimation: UIViewControllerAnimatedTransitioning {
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 1.0
     }
-    
+
     /// 动画的执行过程
     /// 动画执行完后必须调用 transitionContext的一个完成方法,不然不会执行成功
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -49,14 +49,14 @@ extension PresentAnimation: UIViewControllerAnimatedTransitioning {
          7. 动画执行完毕之后,移除UIImageView,添加toView(图片浏览器控制器的View)
          8. 动画执行完调用成功方法
          */
-        
+
         // 将UIImageView添加到containerView
         let containerView = transitionContext.containerView
         containerView.addSubview(imageView)
-        
+
         // 使用UIView的动画,将UIImageView的frame放大到指定的大小(整个屏幕)
         let duration = transitionDuration(using: transitionContext)
-        UIView.animate(withDuration: duration, animations: { 
+        UIView.animate(withDuration: duration, animations: {
             // 设置imageView的大小为全屏
             self.imageView.frame = UIScreen.main.bounds
         }) { (_) in

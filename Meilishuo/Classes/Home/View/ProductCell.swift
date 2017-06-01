@@ -10,15 +10,15 @@ import UIKit
 import SDWebImage
 
 class ProductCell: UICollectionViewCell {
-    
+
     @IBOutlet weak var imageView: UIImageView!
-    
+
     var productModels : ProductModel? {
         didSet {
             guard let url = URL(string: productModels?.thumb_url ?? "") else {
                 return
             }
-            
+
             imageView.sd_setImage(with: url, placeholderImage: UIImage(named: "empty_picture"))
         }
     }

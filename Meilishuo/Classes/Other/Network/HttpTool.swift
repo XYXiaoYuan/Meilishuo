@@ -26,7 +26,7 @@ class HttpTool: NSObject {
         guard let method = HTTPMethod(rawValue: method.rawValue) else {
             return
         }
-        
+
         Alamofire.request(urlString, method: method).responseJSON { (response: DataResponse<Any>) in
             switch response.result {
             case .success(let value):
@@ -48,7 +48,7 @@ extension HTTPToolMethod {
 
         // 根据url发送请求,返回一个请求对象
         let request: DataRequest = Alamofire.request(urlString, method: method)
-        
+
         // responseJSON方法的参数说明:
         /// Adds a handler to be called once the request has finished.
         ///

@@ -276,6 +276,7 @@
 				EA8F65A91EC1AB83008E30B1 /* Resources */,
 				D3743A0A3371EB917028F9E4 /* [CP] Embed Pods Frameworks */,
 				D9A5759C03B02D06F0EDDCB0 /* [CP] Copy Pods Resources */,
+				EAB00EE41EDFB90F002A2659 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -379,6 +380,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Meilishuo/Pods-Meilishuo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		EAB00EE41EDFB90F002A2659 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
