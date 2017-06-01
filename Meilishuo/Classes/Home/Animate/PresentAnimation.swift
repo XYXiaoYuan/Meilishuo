@@ -10,7 +10,7 @@ import UIKit
 
 class PresentAnimation: NSObject {
 
-    /// imageView用于做放大动画
+    /// ImageView用于做放大动画
     fileprivate lazy var imageView = UIImageView().then {
         $0.contentMode = .scaleAspectFit
     }

@@ -37,7 +37,7 @@ class BackToTopButton: UIButton {
 
 }
 
-// MARK: 私有方法
+// MARK: - 私有方法
 extension BackToTopButton {
 
     // 返回顶部按钮事件
@@ -45,7 +45,7 @@ extension BackToTopButton {
         scrollView.setContentOffset(CGPoint.zero, animated: true)
     }
 
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
 
         let isShow: Bool = scrollView.contentOffset.y > scrollView.frame.size.height * 0.5
         backTopButton.isHidden = !isShow

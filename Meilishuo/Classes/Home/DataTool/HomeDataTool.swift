@@ -20,7 +20,7 @@ class HomeDataTool: NSObject {
         }
 
         // 发送请求
-        HttpTool.loadRequest(kRequestURL(page), method: .get) {  (responseObj: [String : Any], error: Error?) in
+        HttpTool.loadRequest(kRequestURL(page), method: .get) {  (responseObj: [String: Any], error: Error?) in
 
             // 1.判断是否有错误
             if (error != nil) {
@@ -35,11 +35,6 @@ class HomeDataTool: NSObject {
             // 3.定义模型并拼接成数组
             var models = [ProductModel]()
             models.append(contentsOf: dictArray.map { ProductModel(dict: $0) })
-//            models.append(dictArray.map {ProductModel(dict: $0)})
-//            for dict in dictArray {
-//                let p = ProductModel(dict)
-//                models.append(p)
-//            }
 
             // 4.返回数组
             result(models)

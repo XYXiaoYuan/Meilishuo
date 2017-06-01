@@ -13,13 +13,20 @@ public protocol Then {}
 
 extension Then where Self: Any {
 
-    /// Makes it available to set properties with closures just after initializing.
+    /**
+     Makes it available to set properties with closures just after initializing.
+
+         let label = UILabel().then {
+             $0.textAlignment = .Center
+             $0.textColor = UIColor.blackColor()
+             $0.text = "Hello, World!"
+         }
+
+     */
+    /// Description
     ///
-    ///     let label = UILabel().then {
-    ///         $0.textAlignment = .Center
-    ///         $0.textColor = UIColor.blackColor()
-    ///         $0.text = "Hello, World!"
-    ///     }
+    /// - Parameter block: block description
+    /// - Returns: return value description
     public func then( block: (inout Self) -> Void) -> Self {
 
         var copy = self
@@ -30,14 +37,20 @@ extension Then where Self: Any {
 
 extension Then where Self: AnyObject {
 
-    /// Makes it available to set properties with closures just after initializing.
-    ///
-    ///     let label = UILabel().then {
-    ///         $0.textAlignment = .Center
-    ///         $0.textColor = UIColor.blackColor()
-    ///         $0.text = "Hello, World!"
-    ///     }
+    /**
+     Makes it available to set properties with closures just after initializing.
 
+         let label = UILabel().then {
+             $0.textAlignment = .Center
+             $0.textColor = UIColor.blackColor()
+             $0.text = "Hello, World!"
+         }
+
+    */
+    /// Description
+    ///
+    /// - Parameter block: block description
+    /// - Returns: return value description
     public func then( block: (Self) -> Void) -> Self {
 
         block(self)
