@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		223955ECC91249EB64FBE4C5 /* Pods_Meilishuo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E603CD014962FF18541DE92B /* Pods_Meilishuo.framework */; };
 		EA49CCED1ECC8D5400B6F993 /* BackToTopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA49CCEC1ECC8D5400B6F993 /* BackToTopButton.swift */; };
+		EA542AB31EE551E0002386F3 /* ViewOfVcable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA542AB21EE551E0002386F3 /* ViewOfVcable.swift */; };
 		EA61238E1EC6A06E00E0003A /* DismissAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA61238C1EC6A06E00E0003A /* DismissAnimation.swift */; };
 		EA61238F1EC6A06E00E0003A /* PresentAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA61238D1EC6A06E00E0003A /* PresentAnimation.swift */; };
 		EA6123911EC6A50500E0003A /* HttpTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6123901EC6A50500E0003A /* HttpTool.swift */; };
@@ -32,6 +33,7 @@
 		A3888E957CFF94D5F412375C /* Pods-Meilishuo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meilishuo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Meilishuo/Pods-Meilishuo.debug.xcconfig"; sourceTree = "<group>"; };
 		E603CD014962FF18541DE92B /* Pods_Meilishuo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Meilishuo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA49CCEC1ECC8D5400B6F993 /* BackToTopButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackToTopButton.swift; sourceTree = "<group>"; };
+		EA542AB21EE551E0002386F3 /* ViewOfVcable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewOfVcable.swift; sourceTree = "<group>"; };
 		EA61238C1EC6A06E00E0003A /* DismissAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissAnimation.swift; sourceTree = "<group>"; };
 		EA61238D1EC6A06E00E0003A /* PresentAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentAnimation.swift; sourceTree = "<group>"; };
 		EA6123901EC6A50500E0003A /* HttpTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpTool.swift; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				EACF56251EC9B1DF008EC7AD /* Thanable.swift */,
+				EA542AB21EE551E0002386F3 /* ViewOfVcable.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 				EA8F65F41EC2B5D4008E30B1 /* DetailCell.swift in Sources */,
 				EA8F65F81EC2B981008E30B1 /* DetailFlowLayout.swift in Sources */,
 				EA8F65CA1EC1AC20008E30B1 /* AppDelegate.swift in Sources */,
+				EA542AB31EE551E0002386F3 /* ViewOfVcable.swift in Sources */,
 				EACF56261EC9B1DF008EC7AD /* Thanable.swift in Sources */,
 				EA61238E1EC6A06E00E0003A /* DismissAnimation.swift in Sources */,
 				EA8F65D51EC1ACED008E30B1 /* HomeCollectionVC.swift in Sources */,
