@@ -90,7 +90,7 @@ extension DetailVC {
 
     @objc
     private func exitHandle() {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true)
     }
 
     @objc
