@@ -10,7 +10,9 @@ import Foundation
 import UIKit
 
 let kScreenBounds = UIScreen.main.bounds
+/// 屏幕宽度
 let kScreenW = kScreenBounds.size.width
+/// 屏幕高度
 let kScreenH = kScreenBounds.size.height
 let kScreenSize = CGSize(width: kScreenW, height: kScreenH)
 let kScreenRightDown = CGRect(x: kScreenW, y: kScreenH, width: 0, height: 0)
@@ -30,3 +32,4 @@ let kRequestURL : (Int) -> String = {
 
 // (在Home界面刷新完毕后)更新Detail界面的数据源的小闭包类型,作为大闭包的参数类型
 typealias DetailClosureType = ([ProductModel]) -> Void
+
