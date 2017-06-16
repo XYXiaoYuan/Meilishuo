@@ -4,7 +4,7 @@
 //
 //  Created by 袁小荣 on 2017/6/5.
 //  Copyright © 2017年 袁小荣. All rights reserved.
-//
+//  获取视图的控制器
 
 import UIKit
 
