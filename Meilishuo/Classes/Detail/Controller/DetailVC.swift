@@ -113,7 +113,7 @@ extension DetailVC {
     }
 }
 
-// MARK: - UICollectionViewDataSource
+// MARK: - UICollectionView数据源
 extension DetailVC {
 
     // 返回每组有多少个item
@@ -130,7 +130,7 @@ extension DetailVC {
     }
 }
 
-// MARK: - UICollectionViewDelegate
+// MARK: - UICollectionView代理
 extension DetailVC {
 
     // 即将显示某一个cell的时候会调用这个时候
