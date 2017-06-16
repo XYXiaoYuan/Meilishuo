@@ -90,7 +90,7 @@ extension HomeCollectionVC {
     }
 }
 
-// MARK: - 数据源
+// MARK: - UICollectionView数据源
 extension HomeCollectionVC {
 
     // 返回每组有多少个item
@@ -119,6 +119,10 @@ extension HomeCollectionVC {
             loadMoreData()
         }
     }
+}
+
+// MARK: - UICollectionView代理
+extension HomeCollectionVC {
 
     // 点击了cell
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -138,7 +142,6 @@ extension HomeCollectionVC {
 
         present(detailVc, animated: true, completion: nil)
     }
-
 }
 
 extension HomeCollectionVC: UIViewControllerTransitioningDelegate {
