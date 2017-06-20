@@ -11,9 +11,9 @@ import UIKit
 class ProductModel: NSObject {
 
     // 拇指图
-    var thumb_url: String = ""
+    var thumb_url = ""
     // 高清图
-    var hd_thumb_url: String = ""
+    var hd_thumb_url = ""
 
     init(dict: [String: Any]) {
 

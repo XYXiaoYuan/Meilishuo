@@ -14,13 +14,13 @@ class HomeCollectionVC: UICollectionViewController {
 
     // MARK: - 对内属性
     // 1.当前页码
-    fileprivate var currentPage: Int = 1
+    fileprivate var currentPage = 1
     // 2.1.弹出的动画模型
     fileprivate lazy var presentAnimation = PresentAnimation()
     // 2.2.退出的动画模型
     fileprivate lazy var dismissAnimation = DismissAnimation()
     // 3.首页的模型数据
-    fileprivate var homeDataSource: [ProductModel] = [ProductModel]() {
+    fileprivate var homeDataSource = [ProductModel]() {
         didSet {
             collectionView?.reloadData()
         }

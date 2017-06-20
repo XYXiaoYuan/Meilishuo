@@ -18,7 +18,7 @@ class DetailFlowLayout: UICollectionViewFlowLayout {
         minimumLineSpacing = 0
         minimumInteritemSpacing = 0
 
-        // 分布效果
+        // 分页效果
         collectionView?.isPagingEnabled = true
     }
 }
