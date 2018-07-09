@@ -11,19 +11,7 @@
 					<key>kind</key>
 					<string>software-package</string>
 					<key>url</key>
-					<string>http://app-global.pgyer.com/c0310d18d1d031e619400fe90ad009c6.ipa?attname=TECWallet%280706build16%E6%AD%A3%E5%BC%8F%E5%8C%85%29.ipa&sign=c69908dfcfa13b4772fd55e3b35b7aaf&t=5b432262</string>
-				</dict>
-				<dict>
-					<key>kind</key>
-					<string>display-image</string>
-					<key>url</key>
-					<string>https://github.com/XYXiaoYuan/Meilishuo/blob/master/icon57x57.png</string>
-				</dict>
-				<dict>
-					<key>kind</key>
-					<string>full-size-image</string>
-					<key>url</key>
-					<string>https://github.com/XYXiaoYuan/Meilishuo/blob/master/icon512x512.png</string>
+					<string>http://app-global.pgyer.com/617c19950bc6f4742d3f030e8a6f8057.ipa?attname=TECWallet%28%E7%B2%BE%E5%BA%A6%E6%98%BE%E7%A4%BA%E6%AD%A3%E5%BC%8F%E7%89%88%29.ipa&amp;sign=162616071d7106147dbd5f0c1586de6b&amp;t=5b3b49ff</string>
 				</dict>
 			</array>
 			<key>metadata</key>
