@@ -34,24 +34,16 @@ extension DismissAnimation: UIViewControllerAnimatedTransitioning {
          */
 
         // 1.获取到fromVC
-        guard let fromVC = transitionContext.viewController(forKey: .from) as? DetailVC else {
-            return
-        }
+        guard let fromVC = transitionContext.viewController(forKey: .from) as? DetailVC else { return }
 
         // 2.获取当前图片浏览器显示的cell
-        guard let fromVisibleCell = fromVC.collectionView?.visibleCells.first as? DetailCell else {
-            return
-        }
+        guard let fromVisibleCell = fromVC.collectionView?.visibleCells.first as? DetailCell else { return }
 
         // 3.获取keywindow
-        guard let keyWindow = UIApplication.shared.keyWindow else {
-            return
-        }
+        guard let keyWindow = UIApplication.shared.keyWindow else { return }
 
         // 4.获取当前cell的indexPath
-        guard let fromIndexPath = fromVC.collectionView?.indexPath(for: fromVisibleCell) else {
-            return
-        }
+        guard let fromIndexPath = fromVC.collectionView?.indexPath(for: fromVisibleCell) else { return }
 
         // 初始化imageView的frame
         var frame = CGRect()

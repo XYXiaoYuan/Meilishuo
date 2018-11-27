@@ -279,7 +279,6 @@
 				EA8F65A91EC1AB83008E30B1 /* Resources */,
 				D3743A0A3371EB917028F9E4 /* [CP] Embed Pods Frameworks */,
 				D9A5759C03B02D06F0EDDCB0 /* [CP] Copy Pods Resources */,
-				EAB00EE41EDFB90F002A2659 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -302,7 +301,7 @@
 				TargetAttributes = {
 					EA8F65AA1EC1AB83008E30B1 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = T868H8UY96;
+						DevelopmentTeam = 54ZQ4YWZNM;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
@@ -383,20 +382,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Meilishuo/Pods-Meilishuo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		EAB00EE41EDFB90F002A2659 /* SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = SwiftLint;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -538,7 +523,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = T868H8UY96;
+				DEVELOPMENT_TEAM = 54ZQ4YWZNM;
 				INFOPLIST_FILE = "$(SRCROOT)/Meilishuo/Classes/Other/System/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bruceyuan.Meilishuo;
@@ -556,7 +541,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = T868H8UY96;
+				DEVELOPMENT_TEAM = 54ZQ4YWZNM;
 				INFOPLIST_FILE = "$(SRCROOT)/Meilishuo/Classes/Other/System/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bruceyuan.Meilishuo;
